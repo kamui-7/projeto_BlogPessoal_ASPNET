@@ -1,4 +1,6 @@
 using BlogAPI.Src.Contextos;
+using BlogAPI.Src.Repositorios;
+using BlogAPI.Src.Repositorios.Implementacoes;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,7 +32,15 @@ namespace BlogAPI
             services.AddDbContext<BlogPessoalContexto>(opt =>
             opt.UseSqlServer(Configuration["ConnectionStringsDev:DefaultConnection"]));
 
+            // Repositorios
+            services.AddScoped<IUsuario, UsuarioRepositorio>();
+            services.AddScoped<ITema, TemaRepositorio>();
+            services.AddScoped<IPostagem, PostagemRepositorio>();
+
+
+
             // Controladores
+            services.AddCors();
             services.AddControllers();
         }
 
@@ -46,9 +56,12 @@ namespace BlogAPI
                 app.UseDeveloperExceptionPage();
             }
             // Ambiente de produção
-            contexto.Database.EnsureCreated();
+            // Rotas
             app.UseRouting();
-            app.UseAuthorization();
+            app.UseCors(c => c
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
