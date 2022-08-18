@@ -6,11 +6,11 @@ namespace BlogAPI.Src.Repositorios
 {
     /// <summary>
     /// <para>Resumo: Responsavel por representar ações de CRUD de tema</para>
-    /// <para>Criado por: Gustavo Boaz</para>
+    /// <para>Criado por: Gabriel Marins</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 29/04/2022</para>
+    /// <para>Data: 18/08/2022</para>
     /// </summary>
-   
+
     public interface ITema
     {
         Task<List<Tema>> PegarTodosTemasAsync();

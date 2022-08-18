@@ -11,9 +11,9 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
 {
     /// <summary>
     /// <para>Resumo: Classe responsavel por implementar IPostagem</para>
-    /// <para>Criado por: Generation</para>
+    /// <para>Criado por: Gabriel Marins</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 12/05/2022</para>
+    /// <para>Data: 18/08/2022</para>
     /// </summary>
     public class PostagemRepositorio : IPostagem
     {
@@ -35,6 +35,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <para>Resumo: Método assíncrono para pegar todas postagens</para>
         /// </summary>
         /// <return>Lista PostagemModelo></return>
+        
         public async Task<List<Postagem>> PegarTodasPostagensAsync()
         {
             return await _contexto.Postagens
@@ -49,6 +50,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <param name="id">Id da postagem</param>
         /// <return>PostagemModelo</return>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
+        
         public async Task<Postagem> PegarPostagemPeloIdAsync(int id)
         {
             if (!ExisteId(id)) throw new Exception("Id da postagem não encontrado");
@@ -68,6 +70,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// </summary>
         /// <param name="postagem">Construtor para cadastrar postagem</param>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
+        
         public async Task NovaPostagemAsync(Postagem postagem)
         {
             if (!ExisteUsuarioId(postagem.Criador.Id)) throw new Exception("Id do usuário não encontrado");
@@ -103,6 +106,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// </summary>
         /// <param name="postagem">Construtor para atualizar postagem</param>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
+        
         public async Task AtualizarPostagemAsync(Postagem postagem)
         {
             if (!ExisteTemaId(postagem.Tema.Id)) throw new Exception("Id do tema não encontrado");
@@ -122,6 +126,10 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
                 return auxiliar != null;
             }
         }
+
+        /// <summary>
+        /// <para>Resumo: Método assíncrono para deletar uma postagem</para>
+        /// </summary>
 
         public async Task DeletarPostagemAsync(int id)
         {

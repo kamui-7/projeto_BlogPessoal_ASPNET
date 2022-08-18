@@ -9,6 +9,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BlogAPI.Src.Repositorios.Implementacoes
 {
+    /// <summary>
+    /// <para>Resumo: Classe responsavel por implementar ITema</para>
+    /// <para>Criado por: Gabriel Marins</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 18/08/2022</para>
+    /// </summary>
+
     public class TemaRepositorio : ITema
     {
         #region Atributos
@@ -39,6 +46,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <param name="id">Id do tema</param>
         /// <return>TemaModelo</return>
         /// <exception cref="Exception">Id não pode ser nulo</exception>
+        
         public async Task<Tema> PegarTemaPeloIdAsync(int id)
         {
             if (!ExisteId(id)) throw new Exception("Id do tema não encontrado");
@@ -52,10 +60,10 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
             }
         }
 
-        /// <summary>
-        /// <para>Resumo: Método assíncrono para salvar um novo tema</para>
-        /// </summary>
-        /// <param name="tema">Construtor para cadastrar tema</param>
+            /// <summary>
+            /// <para>Resumo: Método assíncrono para salvar um novo tema</para>
+            /// </summary>
+            /// <param name="tema">Construtor para cadastrar tema</param>
 
             public async Task NovoTemaAsync(Tema tema)
             {

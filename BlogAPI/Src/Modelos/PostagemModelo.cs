@@ -5,14 +5,14 @@ using System.Text.Json.Serialization;
 
 namespace BlogAPI.Src.Modelos
 {
-/// <summary>
-/// <para>Resumo: Classe responsavel por representar tb_postagens no banco.</para>
-/// <para>Criado por: Generation</para>
-/// <para>Versão: 1.0</para>
-/// <para>Data: 17/07/2022</para>
-/// </summary>
+    /// <summary>
+    /// <para>Resumo: Classe responsavel por representar tb_postagens no banco.</para>
+    /// <para>Criado por: Gabriel Marins</para>
+    /// <para>Versão: 1.0</para>
+    /// <para>Data: 18/08/2022</para>
+    /// </summary>
 
-[Table("tb_postagens")]
+    [Table("tb_postagens")]
     public class Postagem
     {
         #region Atributos

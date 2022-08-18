@@ -7,10 +7,11 @@ namespace BlogAPI.Src.Modelos
 {
     /// <summary>
     /// <para>Resumo: Classe responsavel por representar tb_temas no banco.</para>
-    /// <para>Criado por: Generation</para>
+    /// <para>Criado por: Gabriel Marins</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 17/07/2022</para>
+    /// <para>Data: 18/08/2022</para>
     /// </summary>
+
     [Table("tb_temas")]
     public class Tema
     {

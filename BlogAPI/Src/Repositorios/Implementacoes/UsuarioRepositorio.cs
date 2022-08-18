@@ -10,10 +10,11 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
 {
     /// <summary>
     /// <para>Resumo: Classe responsavel por implementar IUsuario</para>
-    /// <para>Criado por: Generation</para>
+    /// <para>Criado por: Gabriel Marins</para>
     /// <para>Versão: 1.0</para>
-    /// <para>Data: 12/05/2022</para>
+    /// <para>Data: 18/08/2022</para>
     /// </summary>
+
     public class UsuarioRepositorio : IUsuario
     {
         #region Atributos
@@ -35,6 +36,7 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// </summary>
         /// <param name="email">Email do usuario</param>
         /// <return>UsuarioModelo</return>
+        
         public async Task<Usuario> PegarUsuarioPeloEmailAsync(string email)
         {
             return await _contexto.Usuarios.FirstOrDefaultAsync(u => u.Email == email);
@@ -44,21 +46,23 @@ namespace BlogAPI.Src.Repositorios.Implementacoes
         /// <para>Resumo: Método assíncrono para salvar um novo usuario</para>
         /// </summary>
         /// <param name="usuario">Construtor para cadastrar usuario</param>
+        
         public async Task NovoUsuarioAsync(Usuario usuario)
         {
             await _contexto.Usuarios.AddAsync(
             new Usuario
             {
-                Email = usuario.Email,
                 Nome = usuario.Nome,
+                Email = usuario.Email,
                 Senha = usuario.Senha,
-                Foto = usuario.Foto
-            });
+                Foto = usuario.Foto,
+                Tipo = usuario.Tipo
+            }
+            );
             await _contexto.SaveChangesAsync();
 
             #endregion
         }
-
     }
 }
 
